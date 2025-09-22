@@ -2,7 +2,7 @@ name: Daily Amazon Scraper
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs every day at 9:00 UTC
+    - cron: '30 2 * * *'  # Runs every day at 9:00 UTC
   workflow_dispatch:      # Allows manual run
 
 jobs:
