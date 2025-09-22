@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import time
 
 WEBHOOK_URL = "https://discord.com/api/webhooks/1419716880675110984/Fj7mxvrIFXBxkZS8lLpC6ApSYF_ORwjMS_8_gVTC6JDidhAezO9LeXbWAIzrunepJSbh"
 # List of Amazon book links
@@ -113,6 +114,7 @@ for url in urls:
         cheap_books.append(f"{title} - {price}\n{url}")
 
     post_to_discord(title, price, url)
+    time.sleep(3)
 
 if cheap_books:
     cheap_message = "**@everyone Books priced ₹350 or below:**\n" + "\n\n".join(cheap_books)
