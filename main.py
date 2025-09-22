@@ -48,9 +48,13 @@ urls = [
 
 # Headers to mimic a browser
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/120.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "en-IN,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "DNT": "1",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1"
 }
 
 
@@ -111,5 +115,5 @@ for url in urls:
     post_to_discord(title, price, url)
 
 if cheap_books:
-    cheap_message = "**@here Books priced ₹350 or below:**\n" + "\n\n".join(cheap_books)
+    cheap_message = "**@everyone Books priced ₹350 or below:**\n" + "\n\n".join(cheap_books)
     requests.post(WEBHOOK_URL, json={"content": cheap_message})
